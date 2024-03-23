@@ -1,6 +1,7 @@
 import { extendTheme } from "@chakra-ui/react";
 import "@fontsource-variable/league-spartan";
 import "@fontsource-variable/dancing-script";
+import { tagTheme } from "./screens/nutrientPreferences/Tag";
 
 const theme = extendTheme({
   config: {
@@ -143,8 +144,10 @@ const theme = extendTheme({
     "2xl": "96em",
   },
   shadows: {
-    "md-light": "0 4px 6px -1px rgba(255, 255, 255, 0.1), 0 2px 4px -2px rgba(255, 255, 255, 0.1)",
+    "md-light":
+      "0 4px 6px -1px rgba(255, 255, 255, 0.1), 0 2px 4px -2px rgba(255, 255, 255, 0.1)",
   },
+  components: { Tag: tagTheme },
 });
 
 export default theme;

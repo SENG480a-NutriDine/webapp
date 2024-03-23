@@ -32,14 +32,7 @@ const RegisterForm = () => {
         displayName,
         photoURL,
       });
-      toast({
-        title: "Profile Updated",
-        description: "Your profile has been updated successfully.",
-        status: "success",
-        duration: 5000,
-        isClosable: true,
-      });
-      navigate("/");
+      navigate("/profile");
     } catch (error) {
       toast({
         title: "Error updating profile",

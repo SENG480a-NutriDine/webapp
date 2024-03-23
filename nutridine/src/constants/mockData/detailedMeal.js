@@ -38,6 +38,10 @@ const mockDetailedMeal = {
       attr_id: 307,
       value: 70,
     },
+    {
+      value: 150,
+      attr_id: 262,
+    },
   ],
   nix_brand_name: "Coke",
   nix_brand_id: "51db3801176fe9790a89ae0b",

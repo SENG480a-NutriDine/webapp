@@ -11,16 +11,25 @@ import {
 import useMealById from "../hooks/Meals/useMealById";
 import LoadingSpinner from "./LoadingSpinner";
 import NutritionFacts from "./NutritionFacts";
+import useNutrientPreferences from "../hooks/useNutrientPreferences";
+import { useAuth } from "../contexts/AuthContext";
 
 export default function DetailedFoodModalContent({ meal, onClose }) {
   const { nix_item_id } = meal;
-  const { detailedMeal, loading, error } = useMealById({ nix_item_id });
+  const { currentUser } = useAuth();
+  const {
+    detailedMeal,
+    loading: detailedMealIsLoading,
+    error,
+  } = useMealById({ nix_item_id });
   const buttonBg = useColorModeValue("light.primary.500", "dark.primary.500");
   const buttonHover = useColorModeValue(
     "light.primary.200",
     "dark.primary.400"
   );
   const buttonTextColor = useColorModeValue("black", "white");
+  const { isLoading: nutrientPreferencesIsLoading, nutrientPreferences } =
+    useNutrientPreferences(currentUser.uid);
 
   return (
     <Box
@@ -54,7 +63,7 @@ export default function DetailedFoodModalContent({ meal, onClose }) {
       />
 
       <ModalBody mb="1.5rem">
-        {loading ? (
+        {detailedMealIsLoading || nutrientPreferencesIsLoading ? (
           <Box
             w="100%"
             h="80%"
@@ -68,7 +77,10 @@ export default function DetailedFoodModalContent({ meal, onClose }) {
           <p>Error: {error.message}</p>
         ) : (
           <VStack alignItems={"center"} justifyContent={"center"}>
-            <NutritionFacts detailedMeal={detailedMeal} />
+            <NutritionFacts
+              detailedMeal={detailedMeal}
+              nutrientPreferences={nutrientPreferences}
+            />
             <Image
               src={detailedMeal.photo?.thumb}
               alt={detailedMeal.food_name}

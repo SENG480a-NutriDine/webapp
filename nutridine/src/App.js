@@ -6,6 +6,7 @@ import Layout from "./Layout";
 import { Routes, Route } from "react-router-dom";
 import Signup from "./screens/authentication/Signup";
 import Signin from "./screens/authentication/Signin";
+import NutrientPreferences from "./screens/nutrientPreferences/NutrientPreferences";
 import RegisterForm from "./screens/authentication/RegisterForm";
 import ProfilePage from "./screens/authentication/ProfilePage";
 import PasswordReset from "./screens/authentication/PasswordReset";
