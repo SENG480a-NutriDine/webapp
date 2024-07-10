@@ -14,6 +14,7 @@ import Homepage from "./screens/Homepage";
 import RestaurantsPage from "./screens/restaurants/RestaurantsPage";
 import MealsPage from "./screens/restaurants/MealsPage";
 import ProtectedRoute from "./components/ProtectedRoute";
+import { Root } from "./screens/Root";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -30,52 +31,15 @@ function App() {
   return (
     <Layout>
       <Routes>
-        <Route
-          path="/"
-          element={
-            <ProtectedRoute>
-              <Homepage />
-            </ProtectedRoute>
-          }
-        />
-
-        <Route path="/login" element={<Signin />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/register-form" element={<RegisterForm />} />
-
-        <Route path="/preferences-page" element={<NutrientPreferences />} />
-        {/* <Route path="/profile" element={<ProfilePage />} /> */}
-        <Route path="/reset-password" element={<PasswordReset />} />
-        {/* <Route path="/restaurants" element={<RestaurantsPage />} /> */}
-        <Route path="/restaurants/:brandId" element={<MealsPage />} />
-        {/* <Route path="/macro" element={<MacroPage />} /> */}
-        <Route
-          path="/profile"
-          element={
-            <ProtectedRoute>
-              <ProfilePage />
-            </ProtectedRoute>
-          }
-        />
-
-        <Route path="/reset-password" element={<PasswordReset />} />
-
-        <Route
-          path="/restaurants"
-          element={
-            <ProtectedRoute>
-              <RestaurantsPage />
-            </ProtectedRoute>
-          }
-        />
-
-        <Route
-          path="/macro"
-          element={
-            <ProtectedRoute>
-              <MacroPage />
-            </ProtectedRoute>
-          }
+        <Route path="/" element={<Root />} />
+        <Route path="/home" element={<ProtectedRoute><Homepage /></ProtectedRoute>} />
+        <Route path="/register-form" element={<ProtectedRoute><RegisterForm /></ProtectedRoute>} />
+        <Route path="/preferences-page" element={<ProtectedRoute><NutrientPreferences /></ProtectedRoute>} />
+        <Route path="/reset-password" element={<ProtectedRoute><PasswordReset /></ProtectedRoute>} />
+        <Route path="/restaurants/:brandId" element={<ProtectedRoute><MealsPage /></ProtectedRoute>} />
+        <Route path="/profile" element={<ProtectedRoute><ProfilePage /></ProtectedRoute>} />
+        <Route path="/restaurants" element={<ProtectedRoute><RestaurantsPage /></ProtectedRoute>} />
+        <Route path="/macro" element={<ProtectedRoute><MacroPage /></ProtectedRoute>}
         />
       </Routes>
     </Layout>

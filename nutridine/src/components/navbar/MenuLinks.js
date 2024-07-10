@@ -57,7 +57,6 @@ export const MenuLinks = ({ isOpen, onItemSelect, activeItem }) => {
           duration: 5000,
           isClosable: true,
         });
-        navigate("/login");
       })
       .catch((error) => {
         toast({
@@ -98,27 +97,6 @@ export const MenuLinks = ({ isOpen, onItemSelect, activeItem }) => {
           transition: "background-color 1.5s",
         }}
       >
-        <MenuItem
-          isActive={activeItem === "/"}
-          onClick={onItemSelect("/")}
-          to={"/"}
-        >
-          Home
-        </MenuItem>
-        <MenuItem
-          isActive={activeItem === "/restaurants"}
-          onClick={onItemSelect("/restaurants")}
-          to={"/restaurants"}
-        >
-          Restaurants
-        </MenuItem>
-        <MenuItem
-          isActive={activeItem === "/macro"}
-          onClick={onItemSelect("/macro")}
-          to={"/macro"}
-        >
-          Macro
-        </MenuItem>
 
         {currentUser ? (
           <CustomMenu buttonBgHover={buttonBgHover}>
@@ -146,6 +124,28 @@ export const MenuLinks = ({ isOpen, onItemSelect, activeItem }) => {
             </Button>
           </NavLink>
         )}
+
+        <MenuItem
+          isActive={activeItem === "/"}
+          onClick={onItemSelect("/")}
+          to={"/"}
+        >
+          Home
+        </MenuItem>
+        <MenuItem
+          isActive={activeItem === "/restaurants"}
+          onClick={onItemSelect("/restaurants")}
+          to={"/restaurants"}
+        >
+          Restaurants
+        </MenuItem>
+        <MenuItem
+          isActive={activeItem === "/macro"}
+          onClick={onItemSelect("/macro")}
+          to={"/macro"}
+        >
+          Macro
+        </MenuItem>
 
         <Button
           onClick={toggleColorMode}

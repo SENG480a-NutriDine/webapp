@@ -54,15 +54,7 @@ const RegisterForm = () => {
   };
 
   return (
-    <Container width={["100vw", "550px"]} py="12" px="4">
-      {/* <Heading
-        as="h1"
-        size={{ base: "sm", md: "md" }}
-        textAlign="center"
-        mb="6"
-      >
-        Complete Your Profile
-      </Heading> */}
+    <Container py="12" px="4">
       <Box bg={cardBg} px="10" py="8" borderRadius="25px" boxShadow="base">
         <form onSubmit={handleSubmit}>
           <Heading size="md" fontFamily="navbar" fontWeight="500" mb={5}>

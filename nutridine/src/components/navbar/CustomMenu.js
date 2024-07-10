@@ -41,8 +41,11 @@ const CustomMenu = ({ children, buttonBgHover }) => {
           position="absolute"
           zIndex="dropdown"
           bg={cardBg}
-          mt="2"
-          shadow={"lg"}
+          mt={{ base: "0", md: "2" }}
+          mb={{ base: "2", md: "0" }}
+          bottom={{ base: "100%", md: "auto" }}
+          top={{ base: "auto", md: "100%" }}
+          shadow="lg"
           borderRadius="17"
           minWidth="150px"
         >

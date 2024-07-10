@@ -91,36 +91,31 @@ function RestaurantsPage() {
   }
 
   return (
-    <VStack spacing={5} align="stretch">
-      <Flex justify="center" w="full" px={{ base: 4, md: 0 }}>
-        <Input
-          placeholder="Search restaurants..."
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-          bg={inputBg}
-          p={4}
-          size="lg"
-          rounded="md"
-          shadow="base"
-          w={inputWidth}
-          height="56px"
-          fontSize="lg"
-          focusBorderColor="blue.500"
-          sx={{
-            "::placeholder": {
-              fontSize: "lg",
-            },
-          }}
-        />
-      </Flex>
+    <Box
+      position="relative"
+      px={[8, 8, 0]}
+      display="flex"
+      flexDirection="column"
+      alignItems="center"
+    >
+      <Input
+        placeholder="Search for restaurants..."
+        width={["85vw", "70vw", "550px"]}
+        mb={4}
+        height="50px"
+        borderRadius="15px"
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+      />
+
       <SimpleGrid
         columns={{ base: 1, md: 2, lg: 3 }}
-        spacing={5}
-        px={{ md: 4 }}
+        spacing={7}
+        px='0'
       >
         {filteredRestaurants.length > 0 ? (
           filteredRestaurants.map((restaurant) => (
-            <Center key={brandIds[restaurant]} py={2}>
+            <Center key={brandIds[restaurant]}>
               <Box
                 bg={cardBg}
                 boxShadow={"xl"}
@@ -130,12 +125,13 @@ function RestaurantsPage() {
                       ? boxShadowHoverLight
                       : boxShadowHoverDark,
                 }}
-                rounded="md"
+                rounded="15px"
                 overflow="hidden"
                 borderColor={borderColor}
                 borderWidth="1px"
                 cursor={"pointer"}
                 onClick={() => handleRestaurantClick(restaurant)}
+                p='0'
               >
                 {imageSrc[restaurant] ? (
                   <AspectRatio ratio={1} w="250px">
@@ -149,7 +145,7 @@ function RestaurantsPage() {
                 ) : (
                   <Box height="200px" w="full" bg="gray.200" />
                 )}
-                <Box p={6} height="100px">
+                <Box py={6} height="100px">
                   <Text fontWeight={600} fontSize="lg" textAlign="center">
                     {restaurant}
                   </Text>
@@ -173,7 +169,7 @@ function RestaurantsPage() {
         )}
       </SimpleGrid>
       {content}
-    </VStack>
+    </Box>
   );
 }
 export default RestaurantsPage;
